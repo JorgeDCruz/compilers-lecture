@@ -6,7 +6,7 @@ void yyerror(const char *s);
 int yylex(void);
 %}
 
-%token HELLO GOODBYE TIME WEATHER VIM MAP
+%token HELLO GOODBYE TIME WEATHER NAME HOW
 
 %%
 
@@ -14,8 +14,8 @@ chatbot : greeting
         | farewell
         | query
         | weather_q
-        | vimExit_q
-        | map_q
+        | name_q
+        | howRU_q
         ;
 
 greeting : HELLO { printf("Chatbot: Hello! How can I help you today?\n"); }
@@ -32,9 +32,9 @@ query : TIME {
        ;
 weather_q : WEATHER { printf("Chatbot: Today's weather in Guadalajara is 42°C, it's a hellish day. 0% chance of rain."); }
 
-vimExit_q: VIM{ printf("Chatbot: To exit VIM please click esc + : q! and tadah you are now out of vim"); }
+name_q: NAME{ printf("Chatbot: My name is chatbot, pleased to meet you."); }
 
-map_q: MAP { printf("Chatbot: your route to your house loaded correctly, estimated time for arrival 35 mins"); }
+howRU_q: HOW { printf("Chatbot: your route to your house loaded correctly, estimated time for arrival 35 mins"); }
 
 
 
